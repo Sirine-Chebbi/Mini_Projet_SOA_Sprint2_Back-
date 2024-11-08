@@ -38,7 +38,7 @@ public class SerieRESTController {
 		return serieService.saveSerie(serie);
 	}
 	
-	@RequestMapping(value="/updateserie",method = RequestMethod.PUT)
+	@RequestMapping(value="/updateSerie",method = RequestMethod.PUT)
 	public Serie updateSerie(@RequestBody Serie serie) {
 		return serieService.updateSerie(serie);
 	}

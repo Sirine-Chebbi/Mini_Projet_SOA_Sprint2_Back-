@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.sirine.series.entities.Genre;
 import com.sirine.series.entities.Serie;
 import com.sirine.series.repos.GenreRepository;
+import com.sirine.series.repos.ImageRepository;
 import com.sirine.series.repos.SerieRepository;
 
 @Service
@@ -22,6 +23,10 @@ public class SerieServiceImpl implements SerieService{
 	@Autowired
 	GenreRepository genreRepository;
 	
+	@Autowired
+	ImageRepository imageRepository;
+	
+	
 	@Override
 	public Serie saveSerie(Serie s) {
 		return serieRepository.save(s);
@@ -29,8 +34,12 @@ public class SerieServiceImpl implements SerieService{
 
 	@Override
 	public Serie updateSerie(Serie s) {
-		return serieRepository.save(s);
-
+		//Long oldSerieImageId = this.getSerie(s.getIdSerie()).getImage().getIdImage();
+		//Long newSerieImageId = s.getImage().getIdImage();
+		Serie serieUpdated = serieRepository.save(s);
+		//if (oldSerieImageId != newSerieImageId)
+			//imageRepository.deleteById(oldSerieImageId);
+		return serieUpdated;
 	}
 
 	@Override
